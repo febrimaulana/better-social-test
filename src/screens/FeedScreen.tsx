@@ -6,7 +6,10 @@ import {CardFeed} from '@components';
 function FeedScreen() {
   return (
     <SafeAreaView>
-      <ScrollView>
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <CardFeed />
+        <CardFeed />
+        <CardFeed />
         <CardFeed />
       </ScrollView>
     </SafeAreaView>

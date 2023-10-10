@@ -16,7 +16,8 @@
       "@components": ["./src/components"],
       "@screens": ["./src/screens"],
       "@utils": ["./src/utils"],
-      "@constants": ["./src/constants"]
+      "@constants": ["./src/constants"],
+      "@configs": ["./src/configs"]
     }
   },
   "exclude": ["node_modules"]
