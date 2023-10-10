@@ -2,6 +2,7 @@ import {Image, Pressable, StyleSheet, View} from 'react-native';
 import React from 'react';
 
 import {
+  ICBack,
   ICBlock,
   ICComment,
   ICDownvoteInactive,
@@ -10,18 +11,48 @@ import {
 } from '@assets';
 import {Line, Text} from '@components';
 
-const CardFeed = () => {
+interface CardFeedProps {
+  data: {
+    id: string;
+    user: {
+      name: string;
+      image: string;
+    };
+    post: {
+      content: string;
+      date: string;
+      image: string;
+      total_comment: number;
+      total_vote: number;
+    };
+  };
+  onPress?: () => void;
+  onPressBack?: () => void;
+}
+
+const CardFeed = ({data, onPress, onPressBack}: CardFeedProps) => {
   return (
-    <Pressable style={styles.container}>
+    <Pressable style={styles.container} onPress={onPress}>
       <View style={styles.rowUser}>
+        {onPressBack && (
+          <Pressable onPress={onPressBack}>
+            <Image
+              source={ICBack}
+              height={18}
+              width={18}
+              style={styles.iconsMargin}
+            />
+          </Pressable>
+        )}
+
         <Image
           source={{
-            uri: 'https://picsum.photos/200',
+            uri: data.user.image,
           }}
           style={styles.userImage}
         />
         <View style={styles.contentUser}>
-          <Text fontWeight="600">Usup Suparma</Text>
+          <Text fontWeight="600">{data.user.name}</Text>
           <Text fontSize={12} lineHeight={18}>
             Mar 27, 2023
           </Text>
@@ -29,18 +60,10 @@ const CardFeed = () => {
       </View>
       <Line />
       <View>
-        <Text style={styles.contentText}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla luctus
-          in ipsum ac dictum. Integer et nunc ut tellus tinci, consectetur
-          adipiscing elit. Nulla luctus in ipsum ac dictum. Integer et nunc ut
-          tellus tinci, consectetur adipiscing elit. Nulla luctus in ipsum ac
-          dictum. Integer et nunc ut tellus tinci Nulla luctus in ipsum ac
-          dictum. Integer et nunc ut tellus tinci, consectetur adipiscing elit.
-          Nulla luctus in ipsum ac dictum.
-        </Text>
+        <Text style={styles.contentText}>{data.post.content}</Text>
         <Image
           source={{
-            uri: 'https://picsum.photos/200',
+            uri: data.post.image,
           }}
           height={200}
         />
@@ -54,7 +77,7 @@ const CardFeed = () => {
             width={18}
             style={styles.iconsMargin}
           />
-          <Text style={styles.textCounter}>0</Text>
+          <Text style={styles.textCounter}>{data.post.total_comment}</Text>
         </View>
         <View style={styles.contentButton}>
           <Image
@@ -71,7 +94,7 @@ const CardFeed = () => {
               style={styles.iconsMargin}
             />
           </Pressable>
-          <Text style={styles.textCounter}>0</Text>
+          <Text style={styles.textCounter}>{data.post.total_vote}</Text>
           <Pressable onPress={() => console.log('upvote')}>
             <Image source={ICUpvoteActive} height={18} width={18} />
           </Pressable>

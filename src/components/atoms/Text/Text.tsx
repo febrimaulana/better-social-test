@@ -18,6 +18,8 @@ interface TextProps {
     | 'normal';
   lineHeight?: number;
   numberOfLines?: number;
+  textAlign?: 'auto' | 'left' | 'right' | 'center' | 'justify';
+  color?: string;
   style?: StyleProp<TextStyle>;
 }
 
@@ -27,12 +29,14 @@ const Text = ({
   fontWeight = 'normal',
   lineHeight = 16.94,
   numberOfLines,
+  textAlign = 'left',
+  color,
   style,
 }: TextProps) => {
   return (
     <TextRN
       numberOfLines={numberOfLines}
-      style={[{fontSize, fontWeight, lineHeight}, style]}>
+      style={[{fontSize, fontWeight, lineHeight, textAlign, color}, style]}>
       {children}
     </TextRN>
   );
