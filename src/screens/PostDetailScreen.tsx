@@ -1,3 +1,4 @@
+import {useNavigation} from '@react-navigation/native';
 import React from 'react';
 import {
   Button,
@@ -9,16 +10,15 @@ import {
   TextInput,
   View,
 } from 'react-native';
-import {useNavigation} from '@react-navigation/native';
 
-import IconBack from '../assets/back.png';
-import IconBlock from '../assets/block.png';
-import IconComment from '../assets/comment.png';
-import IconDownvoteActive from '../assets/downvote_active.png';
-import IconDownvoteInactive from '../assets/downvote_inactive.png';
-import IconShare from '../assets/share.png';
-import IconUpvoteActive from '../assets/upvote_active.png';
-import IconUpvoteInactive from '../assets/upvote_inactive.png';
+import {
+  ICBack,
+  ICBlock,
+  ICComment,
+  ICDownvoteInactive,
+  ICShare,
+  ICUpvoteInactive,
+} from '@assets';
 
 function PostDetailScreen() {
   const navigation = useNavigation();
@@ -34,7 +34,7 @@ function PostDetailScreen() {
             }}>
             <Pressable onPress={() => navigation.goBack()}>
               <Image
-                source={IconBack}
+                source={ICBack}
                 height={18}
                 width={18}
                 style={{marginLeft: 22}}
@@ -89,13 +89,13 @@ function PostDetailScreen() {
                 flex: 1,
               }}>
               <Image
-                source={IconShare}
+                source={ICShare}
                 height={18}
                 width={18}
                 style={{marginLeft: 22}}
               />
               <Image
-                source={IconComment}
+                source={ICComment}
                 height={18}
                 width={18}
                 style={{marginLeft: 24}}
@@ -115,14 +115,14 @@ function PostDetailScreen() {
                 alignItems: 'center',
               }}>
               <Image
-                source={IconBlock}
+                source={ICBlock}
                 height={18}
                 width={18}
                 style={{marginLeft: 22}}
               />
               <Pressable onPress={() => console.log('downvote')}>
                 <Image
-                  source={IconDownvoteInactive}
+                  source={ICDownvoteInactive}
                   height={18}
                   width={18}
                   style={{marginLeft: 24}}
@@ -138,7 +138,7 @@ function PostDetailScreen() {
               </Text>
               <Pressable onPress={() => console.log('upvote')}>
                 <Image
-                  source={IconUpvoteInactive}
+                  source={ICUpvoteInactive}
                   height={18}
                   width={18}
                   style={{marginRight: 22}}
