@@ -1,3 +1,4 @@
 import Text from './Text';
+import TextMore from './TextMore';
 
-export {Text};
+export {Text, TextMore};

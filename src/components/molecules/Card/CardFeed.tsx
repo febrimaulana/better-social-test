@@ -9,7 +9,7 @@ import {
   ICShare,
   ICUpvoteActive,
 } from '@assets';
-import {Line, Text} from '@components';
+import {Line, Text, TextMore} from '@components';
 
 interface CardFeedProps {
   data: {
@@ -60,7 +60,9 @@ const CardFeed = ({data, onPress, onPressBack}: CardFeedProps) => {
       </View>
       <Line />
       <View>
-        <Text style={styles.contentText}>{data.post.content}</Text>
+        <TextMore style={styles.contentText} numberOfLines={3}>
+          {data.post.content}
+        </TextMore>
         <Image
           source={{
             uri: data.post.image,
