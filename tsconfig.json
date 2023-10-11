@@ -14,10 +14,11 @@
     "paths": {
       "@assets": ["./src/assets"],
       "@components": ["./src/components"],
-      "@screens": ["./src/screens"],
+      "@pages": ["src/pages"],
       "@utils": ["./src/utils"],
       "@constants": ["./src/constants"],
-      "@configs": ["./src/configs"]
+      "@configs": ["./src/configs"],
+      "@dtos": ["./src/dtos"]
     }
   },
   "exclude": ["node_modules"]

@@ -1,17 +1,11 @@
 import {Text} from '@components';
 import {colors} from '@constants';
+import {FeedCommentDto} from '@dtos';
 import React from 'react';
 import {Image, StyleSheet, View} from 'react-native';
 
 interface CardCommnetProps {
-  data: {
-    id: number | string;
-    user: {
-      name: string;
-      image: string;
-    };
-    comment: string;
-  };
+  data: FeedCommentDto;
 }
 
 const CardCommnet = ({data}: CardCommnetProps) => {

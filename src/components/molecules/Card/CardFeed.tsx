@@ -1,5 +1,5 @@
-import {Image, Pressable, StyleSheet, View} from 'react-native';
 import React from 'react';
+import {Image, StyleSheet, TouchableOpacity, View} from 'react-native';
 
 import {
   ICBack,
@@ -10,39 +10,35 @@ import {
   ICUpvoteActive,
 } from '@assets';
 import {Line, Text, TextMore} from '@components';
+import {FeedDataDto} from '@dtos';
 
 interface CardFeedProps {
-  data: {
-    id: string;
-    user: {
-      name: string;
-      image: string;
-    };
-    post: {
-      content: string;
-      date: string;
-      image: string;
-      total_comment: number;
-      total_vote: number;
-    };
-  };
+  data: FeedDataDto;
   onPress?: () => void;
   onPressBack?: () => void;
+  onPressDownvote?: () => void;
+  onPressUpvote?: () => void;
 }
 
-const CardFeed = ({data, onPress, onPressBack}: CardFeedProps) => {
+const CardFeed = ({
+  data,
+  onPress,
+  onPressBack,
+  onPressDownvote,
+  onPressUpvote,
+}: CardFeedProps) => {
   return (
-    <Pressable style={styles.container} onPress={onPress}>
+    <TouchableOpacity style={styles.container} onPress={onPress}>
       <View style={styles.rowUser}>
         {onPressBack && (
-          <Pressable onPress={onPressBack}>
+          <TouchableOpacity onPress={onPressBack}>
             <Image
               source={ICBack}
               height={18}
               width={18}
               style={styles.iconsMargin}
             />
-          </Pressable>
+          </TouchableOpacity>
         )}
 
         <Image
@@ -54,7 +50,7 @@ const CardFeed = ({data, onPress, onPressBack}: CardFeedProps) => {
         <View style={styles.contentUser}>
           <Text fontWeight="600">{data.user.name}</Text>
           <Text fontSize={12} lineHeight={18}>
-            Mar 27, 2023
+            {data.post.date}
           </Text>
         </View>
       </View>
@@ -88,22 +84,22 @@ const CardFeed = ({data, onPress, onPressBack}: CardFeedProps) => {
             width={18}
             style={styles.iconsMargin}
           />
-          <Pressable onPress={() => console.log('downvote')}>
+          <TouchableOpacity onPress={onPressDownvote}>
             <Image
               source={ICDownvoteInactive}
               height={18}
               width={18}
               style={styles.iconsMargin}
             />
-          </Pressable>
+          </TouchableOpacity>
           <Text style={styles.textCounter}>{data.post.total_vote}</Text>
-          <Pressable onPress={() => console.log('upvote')}>
+          <TouchableOpacity onPress={onPressUpvote}>
             <Image source={ICUpvoteActive} height={18} width={18} />
-          </Pressable>
+          </TouchableOpacity>
         </View>
       </View>
       <Line height={5} />
-    </Pressable>
+    </TouchableOpacity>
   );
 };
 
