@@ -113,7 +113,7 @@ Fitur ini bertujuan untuk memberikan rekomendasi pengguna yang mungkin dikenal o
 - `foto_profile`: string
 - `user_interest_id`: array ObjectId (FK) optional default value []
 - `created_at`: date
-- `update_at`: date
+- `updated_at`: date
 
 ### Tabel Pengikut Pengguna (`users_followers`)
 
@@ -121,14 +121,14 @@ Fitur ini bertujuan untuk memberikan rekomendasi pengguna yang mungkin dikenal o
 - `user_id`: ObjectId (FK)
 - `user_follower_id`: ObjectId (FK)
 - `created_at`: date
-- `update_at`: date
+- `updated_at`: date
 
 ### Tabel Minat Pengguna (`users_interests`)
 
 - `id`: ObjectId (PK)
 - `name`: string
 - `created_at`: date
-- `update_at`: date
+- `updated_at`: date
 
 ## Mengatasi Kasus-kasus Ekstrim
 
