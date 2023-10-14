@@ -1,9 +1,9 @@
 import {persistCombineReducers} from 'redux-persist';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import post from './post';
+import PostReducer from './post.reducer';
 
 const reducer = {
-  post,
+  PostReducer,
 };
 
 const configReduxPersist = {

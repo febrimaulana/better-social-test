@@ -1,4 +1,4 @@
-import CardFeed from './CardFeed';
-import CardCommnet from './CardCommnet';
+import CardFeedMolecule from './card.feed.molecule';
+import CardCommnetMolecule from './card.commnet.molecule';
 
-export {CardFeed, CardCommnet};
+export {CardFeedMolecule, CardCommnetMolecule};

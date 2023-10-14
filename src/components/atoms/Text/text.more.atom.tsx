@@ -1,4 +1,4 @@
-import {colors} from '@constants';
+import {ColorConstant} from '@constants';
 import React, {useState} from 'react';
 import {
   StyleProp,
@@ -31,7 +31,7 @@ interface TextProps {
   style?: StyleProp<TextStyle>;
 }
 
-const TextMore = ({
+const TextMoreAtom = ({
   children,
   fontSize = 14,
   fontWeight = 'normal',
@@ -63,11 +63,11 @@ const TextMore = ({
   );
 };
 
-export default TextMore;
+export default TextMoreAtom;
 
 const styles = StyleSheet.create({
   textMore: {
-    color: colors.blue.b6,
+    color: ColorConstant.blue.b6,
     fontSize: 14,
     fontWeight: 'normal',
     lineHeight: 16.94,

@@ -1,4 +1,4 @@
-import {reducer} from '@constants';
+import {ReducerConstant} from '@constants';
 
 const initialStateRoot = {
   post: [
@@ -62,9 +62,9 @@ const initialStateRoot = {
   ],
 };
 
-const global = (state = initialStateRoot, action: any) => {
+const PostReducer = (state = initialStateRoot, action: any) => {
   switch (action.type) {
-    case reducer.SET_POST:
+    case ReducerConstant.SET_POST:
       return {
         ...state,
         post: action.value,
@@ -75,4 +75,4 @@ const global = (state = initialStateRoot, action: any) => {
   }
 };
 
-export default global;
+export default PostReducer;

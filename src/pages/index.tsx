@@ -1,4 +1,4 @@
-import FeedScreen from './FeedScreen';
-import PostDetailScreen from './PostDetailScreen';
+import FeedPage from './feed.page';
+import PostDetailPage from './post.detail.page';
 
-export {FeedScreen, PostDetailScreen};
+export {FeedPage, PostDetailPage};

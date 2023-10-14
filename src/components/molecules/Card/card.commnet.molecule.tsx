@@ -1,5 +1,5 @@
-import {Text} from '@components';
-import {colors} from '@constants';
+import {TextAtom} from '@components';
+import {ColorConstant} from '@constants';
 import {FeedCommentDto} from '@dtos';
 import React from 'react';
 import {Image, StyleSheet, View} from 'react-native';
@@ -8,7 +8,7 @@ interface CardCommnetProps {
   data: FeedCommentDto;
 }
 
-const CardCommnet = ({data}: CardCommnetProps) => {
+const CardCommnetMolecule = ({data}: CardCommnetProps) => {
   return (
     <View style={styles.container}>
       <Image
@@ -18,22 +18,22 @@ const CardCommnet = ({data}: CardCommnetProps) => {
         style={styles.usetAvatar}
       />
       <View style={styles.conatinerCommnet}>
-        <Text
+        <TextAtom
           fontSize={14}
           fontWeight="600"
           lineHeight={14.52}
-          color={colors.grey.g11}>
+          color={ColorConstant.grey.g11}>
           {data.user.name}
-        </Text>
-        <Text fontSize={14} lineHeight={19.36}>
+        </TextAtom>
+        <TextAtom fontSize={14} lineHeight={19.36}>
           {data.comment}
-        </Text>
+        </TextAtom>
       </View>
     </View>
   );
 };
 
-export default CardCommnet;
+export default CardCommnetMolecule;
 
 const styles = StyleSheet.create({
   container: {

@@ -6,7 +6,7 @@ interface InputCommnetProps {
   value?: string;
 }
 
-const InputCommnet = ({onChangeText, value}: InputCommnetProps) => {
+const InputCommnetAtom = ({onChangeText, value}: InputCommnetProps) => {
   return (
     <TextInput
       placeholder="Enter Comment"
@@ -17,7 +17,7 @@ const InputCommnet = ({onChangeText, value}: InputCommnetProps) => {
   );
 };
 
-export default InputCommnet;
+export default InputCommnetAtom;
 
 const styles = StyleSheet.create({
   container: {

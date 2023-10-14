@@ -1,4 +1,4 @@
-import {colors} from '@constants';
+import {ColorConstant} from '@constants';
 import React from 'react';
 import {StyleProp, View, ViewProps} from 'react-native';
 
@@ -8,12 +8,12 @@ interface LineProps {
   style?: StyleProp<ViewProps>;
 }
 
-const Line = ({
+const LineAtom = ({
   height = 1,
-  backgroundColor = colors.grey.g5,
+  backgroundColor = ColorConstant.grey.g5,
   style,
 }: LineProps) => {
   return <View style={[{height, backgroundColor}, style]} />;
 };
 
-export default Line;
+export default LineAtom;

@@ -1,3 +1,3 @@
-import InputCommnet from './InputCommnet';
+import InputCommnetAtom from './input.commnet.atom';
 
-export {InputCommnet};
+export {InputCommnetAtom};

@@ -1,5 +1,5 @@
-import {Text} from '@components';
-import {colors} from '@constants';
+import {TextAtom} from '@components';
+import {ColorConstant} from '@constants';
 import React from 'react';
 import {ActivityIndicator, StyleProp, TouchableOpacity} from 'react-native';
 
@@ -19,11 +19,11 @@ interface ButtonProps {
   style?: StyleProp<any>;
 }
 
-const Button = ({
+const ButtonAtom = ({
   children,
   onPress,
-  textColor = colors.grey.g1,
-  backgroundColor = colors.blue.b8,
+  textColor = ColorConstant.grey.g1,
+  backgroundColor = ColorConstant.blue.b8,
   borderWidth = 0,
   borderColor,
   fontSize,
@@ -50,17 +50,17 @@ const Button = ({
         style,
       ]}>
       {isLoading ? (
-        <ActivityIndicator size="small" color={colors.grey.g1} />
+        <ActivityIndicator size="small" color={ColorConstant.grey.g1} />
       ) : (
-        <Text
+        <TextAtom
           textAlign={'center'}
           fontSize={fontSize}
-          color={textColor || colors.grey.g1}>
+          color={textColor || ColorConstant.grey.g1}>
           {children}
-        </Text>
+        </TextAtom>
       )}
     </TouchableOpacity>
   );
 };
 
-export default Button;
+export default ButtonAtom;

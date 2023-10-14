@@ -1,4 +1,4 @@
-import colors from './colors';
-import reducer from './reducer';
+import ColorConstant from './colors.constant';
+import ReducerConstant from './reducer.constant';
 
-export {colors, reducer};
+export {ColorConstant, ReducerConstant};

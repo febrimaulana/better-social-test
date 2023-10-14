@@ -1,4 +1,4 @@
-import {CardFeed} from '@components';
+import {CardFeedMolecule} from '@components';
 import {PostAction} from '@configs';
 import {FeedDataDto} from '@dtos';
 import {useNavigation} from '@react-navigation/native';
@@ -7,8 +7,8 @@ import React from 'react';
 import {ScrollView} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 
-const FeedScreen = ({}) => {
-  const post = useSelector((state: any) => state.post.post);
+const FeedOrganism = () => {
+  const post = useSelector((state: any) => state.PostReducer.post);
   const dispatch = useDispatch();
   const navigation = useNavigation<NativeStackNavigationProp<any>>();
 
@@ -16,7 +16,7 @@ const FeedScreen = ({}) => {
     <ScrollView showsVerticalScrollIndicator={false}>
       {post.map((item: FeedDataDto) => {
         return (
-          <CardFeed
+          <CardFeedMolecule
             key={item.id}
             data={item}
             onPress={() => navigation.push('post-detail', item)}
@@ -29,4 +29,4 @@ const FeedScreen = ({}) => {
   );
 };
 
-export default FeedScreen;
+export default FeedOrganism;

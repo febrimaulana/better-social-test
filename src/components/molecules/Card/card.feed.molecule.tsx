@@ -9,7 +9,7 @@ import {
   ICShare,
   ICUpvoteActive,
 } from '@assets';
-import {Line, Text, TextMore} from '@components';
+import {LineAtom, TextAtom, TextMoreAtom} from '@components';
 import {FeedDataDto} from '@dtos';
 
 interface CardFeedProps {
@@ -18,17 +18,22 @@ interface CardFeedProps {
   onPressBack?: () => void;
   onPressDownvote?: () => void;
   onPressUpvote?: () => void;
+  disabled?: boolean;
 }
 
-const CardFeed = ({
+const CardFeedMolecule = ({
   data,
   onPress,
   onPressBack,
   onPressDownvote,
   onPressUpvote,
+  disabled,
 }: CardFeedProps) => {
   return (
-    <TouchableOpacity style={styles.container} onPress={onPress}>
+    <TouchableOpacity
+      style={styles.container}
+      onPress={onPress}
+      disabled={disabled}>
       <View style={styles.rowUser}>
         {onPressBack && (
           <TouchableOpacity onPress={onPressBack}>
@@ -48,17 +53,17 @@ const CardFeed = ({
           style={styles.userImage}
         />
         <View style={styles.contentUser}>
-          <Text fontWeight="600">{data.user.name}</Text>
-          <Text fontSize={12} lineHeight={18}>
+          <TextAtom fontWeight="600">{data.user.name}</TextAtom>
+          <TextAtom fontSize={12} lineHeight={18}>
             {data.post.date}
-          </Text>
+          </TextAtom>
         </View>
       </View>
-      <Line />
+      <LineAtom />
       <View>
-        <TextMore style={styles.contentText} numberOfLines={3}>
+        <TextMoreAtom style={styles.contentText} numberOfLines={3}>
           {data.post.content}
-        </TextMore>
+        </TextMoreAtom>
         <Image
           source={{
             uri: data.post.image,
@@ -75,7 +80,9 @@ const CardFeed = ({
             width={18}
             style={styles.iconsMargin}
           />
-          <Text style={styles.textCounter}>{data.post.total_comment}</Text>
+          <TextAtom style={styles.textCounter}>
+            {data.post.total_comment}
+          </TextAtom>
         </View>
         <View style={styles.contentButton}>
           <Image
@@ -92,18 +99,18 @@ const CardFeed = ({
               style={styles.iconsMargin}
             />
           </TouchableOpacity>
-          <Text style={styles.textCounter}>{data.post.total_vote}</Text>
+          <TextAtom style={styles.textCounter}>{data.post.total_vote}</TextAtom>
           <TouchableOpacity onPress={onPressUpvote}>
             <Image source={ICUpvoteActive} height={18} width={18} />
           </TouchableOpacity>
         </View>
       </View>
-      <Line height={5} />
+      <LineAtom height={5} />
     </TouchableOpacity>
   );
 };
 
-export default CardFeed;
+export default CardFeedMolecule;
 
 const styles = StyleSheet.create({
   container: {},

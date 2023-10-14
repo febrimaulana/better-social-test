@@ -1,4 +1,4 @@
-import Text from './Text';
-import TextMore from './TextMore';
+import TextAtom from './text.atom';
+import TextMoreAtom from './text.more.atom';
 
-export {Text, TextMore};
+export {TextAtom, TextMoreAtom};

@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleProp, Text as TextRN, TextStyle} from 'react-native';
+import {StyleProp, Text, TextStyle} from 'react-native';
 
 interface TextProps {
   children: React.ReactNode;
@@ -23,7 +23,7 @@ interface TextProps {
   style?: StyleProp<TextStyle>;
 }
 
-const Text = ({
+const TextAtom = ({
   children,
   fontSize = 14,
   fontWeight = 'normal',
@@ -34,12 +34,12 @@ const Text = ({
   style,
 }: TextProps) => {
   return (
-    <TextRN
+    <Text
       numberOfLines={numberOfLines}
       style={[{fontSize, fontWeight, lineHeight, textAlign, color}, style]}>
       {children}
-    </TextRN>
+    </Text>
   );
 };
 
-export default Text;
+export default TextAtom;

@@ -1,4 +1,4 @@
-import {reducer} from '@constants';
+import {ReducerConstant} from '@constants';
 import {FeedDataDto} from '@dtos';
 
 export default class PostAction {
@@ -15,12 +15,12 @@ export default class PostAction {
       }
       return item;
     });
-    return {type: reducer.SET_POST, value: newData};
+    return {type: ReducerConstant.SET_POST, value: newData};
   };
 
   static downVote = (data: FeedDataDto, post: FeedDataDto[]) => {
     if (data.post.total_vote < 1) {
-      return {type: reducer.SET_POST, value: post};
+      return {type: ReducerConstant.SET_POST, value: post};
     }
 
     const newData = post.map((item: FeedDataDto) => {
@@ -35,7 +35,7 @@ export default class PostAction {
       }
       return item;
     });
-    return {type: reducer.SET_POST, value: newData};
+    return {type: ReducerConstant.SET_POST, value: newData};
   };
 
   static addComment = (
@@ -66,6 +66,6 @@ export default class PostAction {
       }
       return item;
     });
-    return {type: reducer.SET_POST, value: newData};
+    return {type: ReducerConstant.SET_POST, value: newData};
   };
 }

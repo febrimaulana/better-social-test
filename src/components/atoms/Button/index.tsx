@@ -1,3 +1,3 @@
-import Button from './Button';
+import ButtonAtom from './button.atom';
 
-export {Button};
+export {ButtonAtom};

@@ -2,15 +2,22 @@ import {useNavigation} from '@react-navigation/native';
 import React, {useState} from 'react';
 import {ScrollView, StyleSheet, View} from 'react-native';
 
-import {Button, CardCommnet, CardFeed, InputCommnet, Line} from '@components';
+import {
+  ButtonAtom,
+  CardCommnetMolecule,
+  CardFeedMolecule,
+  GapAtom,
+  InputCommnetAtom,
+  LineAtom,
+} from '@components';
 import {PostAction} from '@configs';
-import {colors} from '@constants';
+import {ColorConstant} from '@constants';
 import {FeedCommentDto, FeedDataDto} from '@dtos';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {useDispatch, useSelector} from 'react-redux';
 
-const PostDetailScreen = () => {
-  const post = useSelector((state: any) => state.post.post);
+const PostDetailOrganism = () => {
+  const post = useSelector((state: any) => state.PostReducer.post);
   const dispatch = useDispatch();
   const navigation = useNavigation<NativeStackNavigationProp<any>>();
   const params = navigation.getState().routes[1].params as FeedDataDto;
@@ -22,32 +29,34 @@ const PostDetailScreen = () => {
   return (
     <View style={styles.container}>
       <ScrollView style={styles.containerScroll}>
-        <CardFeed
+        <CardFeedMolecule
           data={userPost}
           onPressBack={() => navigation.goBack()}
           onPressUpvote={() => dispatch(PostAction.incVote(userPost, post))}
           onPressDownvote={() => dispatch(PostAction.downVote(userPost, post))}
+          disabled
         />
         {userPost.commnets.map((item: FeedCommentDto) => (
-          <CardCommnet key={item.id} data={item} />
+          <CardCommnetMolecule key={item.id} data={item} />
         ))}
-        <Line />
+        <LineAtom />
+        <GapAtom height={100} />
       </ScrollView>
       <View style={styles.containerInputComment}>
-        <InputCommnet onChangeText={text => setInput(text)} value={input} />
-        <Button
+        <InputCommnetAtom onChangeText={text => setInput(text)} value={input} />
+        <ButtonAtom
           onPress={() => {
             dispatch(PostAction.addComment(userPost, post, input));
             setInput('');
           }}>
           Comment
-        </Button>
+        </ButtonAtom>
       </View>
     </View>
   );
 };
 
-export default PostDetailScreen;
+export default PostDetailOrganism;
 
 const styles = StyleSheet.create({
   container: {
@@ -65,6 +74,6 @@ const styles = StyleSheet.create({
     width: '100%',
     paddingHorizontal: 24,
     zIndex: 10,
-    backgroundColor: colors.grey.g1,
+    backgroundColor: ColorConstant.grey.g1,
   },
 });

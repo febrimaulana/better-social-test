@@ -1,3 +1,3 @@
-import Line from './Line';
+import LineAtom from './line.atom';
 
-export {Line};
+export {LineAtom};
