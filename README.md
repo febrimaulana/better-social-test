@@ -213,3 +213,7 @@ Dengan struktur data dan pendekatan ini, Anda dapat mengimplementasikan fitur "O
 
 7. **Optimisasi Basis Data dengan Indexing:**
    - Pastikan bahwa struktur basis data dioptimalkan dengan menggunakan indeks pada kolom yang sering digunakan dalam operasi pencarian atau penyaringan.
+
+## Hak Cipta
+
+Hak cipta © 2023 **Febri Maulana Yunus**
