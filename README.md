@@ -85,6 +85,14 @@ tetapi di sini saya haya menggunakan atoms, molecules, organisms serta pages
 |-- MainApp.tsx
 ```
 
+# SOAL A
+
+# Topik: Komunikasi dengan Manajer Produk.
+
+- jika user melakukan vote secara kode nantinya akan di handle secara synchronous atau asynchronous ?
+  - jika di handle secara synchronous maka aka membutuhkan action loading pada UI agar user tau kalo proses nya sedang berlangsung dan mungkin perlu snackbar error jika terjadi gagal hit ke api
+  - sedangkan kalo di handle secara asynchronous maka tidak perlu action loading pada UI karena proses nya akan berjalan di background dan jika terjadi gagal hit ke api apa yang harus di lakukan karena database tidak terupdate dan secara ui sudah terupdate votenya karena action menambahkan vote nya tidak menunggu apakah api nya berhasil atau tidak
+
 # SOAL C1
 
 # Fitur "Orang yang Mungkin Anda Kenal" - Dokumentasi
@@ -118,7 +126,7 @@ Fitur ini bertujuan untuk memberikan rekomendasi pengguna yang mungkin dikenal o
 ### Tabel Minat Pengguna (`users_interests`)
 
 - `id`: ObjectId (PK)
-- `interest`: string
+- `name`: string
 - `created_at`: date
 - `update_at`: date
 
