@@ -47,7 +47,8 @@ yarn ios
 Struktur Folder menggunakan konsep ATOMIC Design (http://bradfrost.com/blog/post/atomic-web-design/)
 tetapi di sini saya haya menggunakan atoms, molecules, organisms serta pages
 
-```src
+```
+src
 |-- assets
 | |-- icons
 | |-- anything_all_asset
